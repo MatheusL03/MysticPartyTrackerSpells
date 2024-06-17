@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="MysticPartyTracker.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:MysticPartyTracker.View"
+    Shell.FlyoutBehavior="Disabled"
+    Title="MysticPartyTracker">
+
+    <TabBar>
+        <ShellContent
+        Title="Dice Roller"
+        ContentTemplate="{DataTemplate local:DiceView}"
+        Route="Dice" />
+
+       <ShellContent
+        Title="Personagem"
+        ContentTemplate="{DataTemplate local:CharacterView}"
+        Route="Character" />
+
+        <ShellContent
+        Title="Magia"
+        ContentTemplate="{DataTemplate local:SpellsView}"
+        Route="Spells" />
+
+
+    </TabBar>
+</Shell>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MysticPartyTracker.View.DiceView"
+             Title="DiceView">
+
+    <ScrollView>
+    <VerticalStackLayout
+        Spacing="15"
+        Padding="10,30"
+        HorizontalOptions="Center">
+        
+        <Label 
+            Text="Selecione a quantidade de dados"
+            />
+            <Picker x:Name="QuantityPicker" SelectedItem="{Binding Quantity}">
+            <Picker.ItemsSource>
+                <x:Array Type="{x:Type x:Int32}">
+                    <x:Int32>1</x:Int32>
+                    <x:Int32>2</x:Int32>
+                    <x:Int32>3</x:Int32>
+                    <x:Int32>4</x:Int32>
+                    <x:Int32>5</x:Int32>
+                    <x:Int32>6</x:Int32>
+                    <x:Int32>7</x:Int32>
+                    <x:Int32>8</x:Int32>
+                    <x:Int32>9</x:Int32>
+                    <x:Int32>10</x:Int32>
+                    <x:Int32>20</x:Int32>
+                    <x:Int32>50</x:Int32>
+                    <x:Int32>80</x:Int32>
+                    <x:Int32>100</x:Int32>
+                </x:Array>
+            </Picker.ItemsSource>
+        </Picker>
+
+
+        <Label Text="Selecione a quantidade de lado dos dados"/>
+
+            <Picker x:Name="SidesPicker" SelectedItem="{Binding NumberSides}">
+            <Picker.ItemsSource>
+                <x:Array Type="{x:Type x:Int32}">
+                    <x:Int32>4</x:Int32>
+                    <x:Int32>6</x:Int32>
+                    <x:Int32>10</x:Int32>
+                    <x:Int32>12</x:Int32>
+                    <x:Int32>20</x:Int32>
+                </x:Array>
+            </Picker.ItemsSource>
+        </Picker>
+
+        <Button 
+            x:Name="RollBtn"
+            Text="Rodar"
+            AutomationProperties.Name="Rodar os dados"
+            Command="{Binding RollCommand}"
+            BackgroundColor="Black"
+            />
+        
+        <Label Text="" x:Name="AllDicesResultLabel" />
+
+        <Label
+            x:Name="RandomNumber" Text=""/>
+
+        <Label
+            x:Name="resultString"
+            Text="{Binding Total}"
+            FontSize="40"
+            HorizontalOptions="Center"/>
+
+            <CollectionView ItemsSource="{Binding Rolls}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <VerticalStackLayout>
+                            <Label Text="{Binding}" HorizontalOptions="Center"/>
+                        </VerticalStackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+    </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

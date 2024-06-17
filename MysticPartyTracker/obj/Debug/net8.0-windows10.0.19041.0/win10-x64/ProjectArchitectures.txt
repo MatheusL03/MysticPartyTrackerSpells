@@ -1,0 +1,1 @@
+E:\PAM\PAM\MysticPartyTracker\MysticPartyTracker\MysticPartyTracker\MysticPartyTracker.csproj;x64

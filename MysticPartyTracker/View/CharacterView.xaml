@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MysticPartyTracker.View.CharacterView"
+             Title="CharacterView">
+    <ScrollView>
+        <VerticalStackLayout
+         Spacing="15"
+         Padding="20,20"
+         HorizontalOptions="Center">
+
+            <HorizontalStackLayout>
+                <VerticalStackLayout Padding="0,0,200,0">
+
+                <Label 
+                    Text="Digite o Nome do seu Personagem"
+                    x:Name="NameCharacter"
+                    FontSize="20"
+                    HorizontalOptions="FillAndExpand"
+                    />
+
+                <Entry
+                    Margin="10"
+                    Text="{Binding Name}"
+                />
+
+
+                </VerticalStackLayout>
+
+
+            <VerticalStackLayout>
+
+
+                <Label 
+                     Text="Nível"
+                     VerticalOptions="Center"
+                     FontSize="20"
+                     />
+
+                <Entry              
+                    Margin="15"
+                    Text="{Binding Level}"
+                    />
+
+                </VerticalStackLayout>
+            </HorizontalStackLayout>
+
+            <Label 
+               Text="Digite a Classe do seu Personagem"
+               VerticalOptions="Center"
+               FontSize="20"
+               HorizontalOptions="Center" />
+
+            <Entry
+              Margin="10"
+              Text="{Binding Class}"
+           />
+
+
+        <Label 
+           Text="Digite a Raça do seu Personagem"
+           VerticalOptions="Center"
+           FontSize="20"
+           HorizontalOptions="Center" />
+
+            <Entry
+                Margin="10"
+                Text="{Binding Race}"
+           />
+
+        <Button 
+            x:Name="AddCharacter"
+            Text="Adicionar"
+            AutomationProperties.Name="Adicionar Personagem"
+            BackgroundColor="Black"
+            Command="{Binding CreateCharacterCommand}"
+            />
+
+            <CollectionView ItemsSource="{Binding Characters}" Margin="250,0,0,0">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                      <VerticalStackLayout>
+                            <HorizontalStackLayout>
+                                <Label Text="{Binding Name}"/>
+                                <Label Text="{Binding Level}"/>
+                            </HorizontalStackLayout>
+                            <Label Text="{Binding Class}"/>
+                        <Label Text="{Binding Race}"/>
+                    </VerticalStackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+
+    </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
